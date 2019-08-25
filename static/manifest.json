@@ -1,0 +1,9 @@
+{
+  "background_color": "#ffffff",
+  "theme_color": "#333333",
+  "name": "Pets",
+  "short_name": "Pets",
+  "display": "minimal-ui",
+  "start_url": "/",
+  "icons": []
+}

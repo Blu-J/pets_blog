@@ -10,7 +10,7 @@
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
-    "deploy": "BASE_NAME=\"pets_blog\" npx sapper export --basepath \"$BASE_NAME\" sapper export && push-dir --dir=\"__sapper__/export/$BASE_NAME\" --branch=gh-pages --cleanup"
+    "deploy": "BASE_NAME=\"pets_blog\" npx sapper export --basepath \"$BASE_NAME\" && push-dir --dir=\"__sapper__/export/$BASE_NAME\" --branch=gh-pages --cleanup"
   },
   "dependencies": {
     "compression": "^1.7.1",

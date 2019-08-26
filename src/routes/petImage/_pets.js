@@ -1,4 +1,6 @@
-import { compose, match, map, reject, isNil, prop } from "ramda";
+// @ts-check
+/** @typedef {string & {__type: 'petName'}} PetName */
+import { compose, match, map, reject, isNil, path } from "ramda";
 const files = [
   "service-worker-index.html",
   "favicon.png",
@@ -21,10 +23,17 @@ const files = [
   "pets/IMG_20190731_221721.jpg",
   "pets/IMG_20190731_221728.jpg"
 ];
-const getJpgs = compose(
+/** @type {function(string[]): PetName[]} */
+const getImages = compose(
   reject(isNil),
-  map(prop(1)),
+  map(path([1])),
   map(match(/pets\/(.*?).jpg/))
 );
-const all = getJpgs(files);
+const all = getImages(files);
 export default all;
+
+console.assert(all.length >= 2, "Expecting that we have more than 2 images");
+console.assert(
+  all.length < files.length,
+  "The images length should be less than input"
+);
